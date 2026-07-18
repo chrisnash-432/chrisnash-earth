@@ -1,0 +1,32 @@
+---
+import { SITE } from '../config';
+interface Props { id?: string; compact?: boolean; }
+const { id = 'subscribe', compact = false } = Astro.props;
+const wired = Boolean(SITE.kitFormAction);
+---
+<div class="capture" id={id}>
+  {wired ? (
+    <>
+      <form action={SITE.kitFormAction} method="post" target="_blank">
+        <input type="email" name="email_address" placeholder="Your email address" required aria-label="Email address" />
+        <button class="btn" type="submit">Join the letters</button>
+      </form>
+      <p class="fine">
+        {SITE.newsletterPromise} {SITE.antiSpam}
+        {!compact && <> First time here? <a href="/letters/001-starting-with-nothing/">Read Letter No. 001</a>.</>}
+      </p>
+    </>
+  ) : (
+    <>
+      <form action={`mailto:${SITE.email}?subject=Subscribe%20me%20to%20Inner%20%26%20Outer%20Landscapes`} method="get">
+        <input type="email" name="from" placeholder="Your email address" aria-label="Email address" />
+        <button class="btn" type="submit">Join the letters</button>
+      </form>
+      <p class="fine">
+        {SITE.newsletterPromise} {SITE.antiSpam} While the list is being set up this sends me an
+        email and I will add you personally.
+        {!compact && <> Or start by reading <a href="/letters/001-starting-with-nothing/">Letter No. 001</a>.</>}
+      </p>
+    </>
+  )}
+</div>
