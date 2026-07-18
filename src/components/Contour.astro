@@ -1,0 +1,57 @@
+---
+// Stylised contour-line motifs. Each variant is a hand-drawn nod to a real landscape
+// Chris works in; coordinate stamps are approximate. Swapped for field photography
+// as the curated archive lands.
+interface Props { variant?: 'uilenkraal' | 'mulanje' | 'nairobi' | 'kraaibosch'; coord?: string; height?: number; }
+const { variant = 'uilenkraal', coord, height = 200 } = Astro.props;
+
+const sets: Record<string, { paths: string[]; stroke: string }> = {
+  uilenkraal: {
+    stroke: '#3E5C41',
+    paths: [
+      'M-20,150 C120,110 220,170 360,130 C480,96 560,150 660,120',
+      'M-20,120 C110,80 230,140 370,100 C490,66 570,120 660,90',
+      'M-20,90 C100,55 240,110 380,72 C500,40 580,92 660,62',
+      'M-20,62 C95,32 250,84 390,48 C505,18 585,66 660,38',
+      'M-20,180 C130,145 210,200 350,165 C470,132 555,182 660,155'
+    ]
+  },
+  mulanje: {
+    stroke: '#7A5A24',
+    paths: [
+      'M-20,160 C90,150 150,60 260,58 C370,56 420,140 540,132 C600,128 630,150 660,148',
+      'M-20,140 C95,130 160,40 265,38 C365,36 425,120 545,112 C605,108 635,132 660,130',
+      'M-20,118 C100,110 175,22 270,20 C355,18 430,98 550,92 C608,88 638,112 660,110',
+      'M-20,182 C85,172 145,84 255,82 C375,80 415,162 535,154 C598,150 628,172 660,170'
+    ]
+  },
+  nairobi: {
+    stroke: '#3E5C41',
+    paths: [
+      'M60,210 C60,120 140,60 250,60 C360,60 440,120 440,210',
+      'M100,210 C100,140 165,90 250,90 C335,90 400,140 400,210',
+      'M140,210 C140,160 190,120 250,120 C310,120 360,160 360,210',
+      'M180,210 C180,180 210,150 250,150 C290,150 320,180 320,210',
+      'M480,210 C480,150 520,110 580,110 C640,110 680,150 680,210'
+    ]
+  },
+  kraaibosch: {
+    stroke: '#A66A4E',
+    paths: [
+      'M-20,100 C80,140 180,60 280,100 C380,140 480,60 580,100 C620,116 645,104 660,108',
+      'M-20,130 C85,168 185,90 285,128 C385,166 485,88 585,128 C622,142 646,132 660,134',
+      'M-20,70 C75,110 175,32 275,70 C375,108 475,30 575,70 C618,88 644,76 660,80',
+      'M-20,160 C90,196 190,120 290,156 C390,192 490,118 590,156 C625,168 648,160 660,162'
+    ]
+  }
+};
+const set = sets[variant];
+---
+<div class="contour-card" style={`height:${height}px`}>
+  <svg viewBox="0 0 640 220" preserveAspectRatio="xMidYMid slice" aria-hidden="true" style={`height:${height}px`}>
+    {set.paths.map((d, i) => (
+      <path d={d} fill="none" stroke={set.stroke} stroke-width="1.1" opacity={0.5 - i * 0.07} />
+    ))}
+  </svg>
+  {coord && <div class="coord">{coord}</div>}
+</div>

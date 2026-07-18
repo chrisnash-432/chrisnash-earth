@@ -1,0 +1,28 @@
+# Chris Nash · Inner & Outer Landscapes
+
+> Personal site of Chris Nash, restoration leader and agroecologist in Cape Town,
+> South Africa. Head of Restoration at Greenpop. Fortnightly letters on ecological
+> restoration, inner development and regenerative culture across Africa.
+
+Chris Nash helps organisations and communities restore degraded landscapes by
+bridging ecological science, inner development and systems thinking. Through the
+programmes he helps run with Greenpop and partners: around 30,000 trees planted per
+year across Southern Africa, 450+ community greening days, 10 urban green zones,
+and live projects in South Africa, Malawi, Kenya and Sierra Leone.
+
+His framework, Inner & Outer Landscapes, holds that ecological restoration and the
+development of the people doing it are one system, developed in public through the
+fortnightly newsletter of the same name.
+
+## Pages
+
+- [Home](https://chrisnash.earth/): overview, newsletter signup
+- [Letters](https://chrisnash.earth/letters/): the newsletter and full archive
+- [About](https://chrisnash.earth/about/): background, work, the framework
+- [Now](https://chrisnash.earth/now/): current projects and season
+- [RSS](https://chrisnash.earth/rss.xml)
+
+## Contact
+
+- Email: chris@chrisnash.earth
+- LinkedIn: https://www.linkedin.com/in/christopher-nash-bba628266

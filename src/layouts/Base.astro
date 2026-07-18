@@ -1,0 +1,114 @@
+---
+import { SITE } from '../config';
+import '@fontsource-variable/fraunces';
+import '@fontsource-variable/fraunces/wght-italic.css';
+import '@fontsource-variable/inter';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  path?: string;
+  ogType?: string;
+  schema?: object | object[];
+}
+const { title, description = SITE.description, path = '/', ogType = 'website', schema } = Astro.props;
+const fullTitle = title ? `${title} · ${SITE.name}` : SITE.title;
+const canonical = new URL(path, SITE.url).href;
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Chris Nash',
+  alternateName: 'Christopher Nash',
+  url: SITE.url,
+  email: `mailto:${SITE.email}`,
+  jobTitle: 'Head of Restoration',
+  worksFor: { '@type': 'Organization', name: 'Greenpop Foundation', url: SITE.greenpop },
+  address: { '@type': 'PostalAddress', addressLocality: 'Cape Town', addressCountry: 'ZA' },
+  sameAs: [SITE.linkedin],
+  description: SITE.description,
+  knowsAbout: [
+    'Ecosystem restoration', 'Nature-based solutions', 'Syntropic agroforestry',
+    'Agroecology', 'Urban greening', 'Bioregioning', 'Regenerative development',
+    'Inner Development Goals', 'Theory U'
+  ]
+};
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE.title,
+  url: SITE.url,
+  description: SITE.description,
+  author: { '@type': 'Person', name: 'Chris Nash' }
+};
+const schemas = [personSchema, websiteSchema, ...(schema ? (Array.isArray(schema) ? schema : [schema]) : [])];
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{fullTitle}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="alternate" type="application/rss+xml" title={SITE.newsletterName} href="/rss.xml" />
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content={ogType} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={new URL('/og-default.png', SITE.url).href} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script is:inline>document.documentElement.classList.add('js');</script>
+  <script type="application/ld+json" set:html={JSON.stringify(schemas)} />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site">
+    <div class="wrap">
+      <nav class="site" aria-label="Main">
+        <a class="wordmark" href="/">Chris Nash <span>· inner &amp; outer landscapes</span></a>
+        <div class="links">
+          <a href="/letters/" aria-current={path.startsWith('/letters') ? 'page' : undefined}>Letters</a>
+          <a href="/about/" aria-current={path.startsWith('/about') ? 'page' : undefined}>About</a>
+          <a href="/now/" aria-current={path.startsWith('/now') ? 'page' : undefined}>Now</a>
+          <a class="btn" href="/letters/#subscribe">Subscribe</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <slot />
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      <div class="cols">
+        <div>
+          <div class="sig">Inner &amp; Outer Landscapes</div>
+          <div>© {new Date().getFullYear()} Chris Nash · Cape Town, South Africa</div>
+          <div class="speak">For speaking and collaboration: <a href={`mailto:${SITE.email}`}>{SITE.email}</a></div>
+        </div>
+        <nav aria-label="Footer">
+          <a href="/letters/">Letters</a>
+          <a href="/about/">About</a>
+          <a href="/now/">Now</a>
+          <a href="/rss.xml">RSS</a>
+          <a href={SITE.linkedin} rel="me">LinkedIn</a>
+          <a href={SITE.greenpop}>Greenpop</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('in')),
+      { threshold: 0.12 }
+    );
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+  </script>
+</body>
+</html>
