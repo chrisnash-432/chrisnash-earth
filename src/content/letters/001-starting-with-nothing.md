@@ -32,7 +32,7 @@ It sounds poetic. It's actually practical. Degraded land and depleted people ten
 
 I've since taken that conviction into work at a much bigger scale: 30,000 trees a year across Southern Africa through the programmes I help run, urban greening days in cities, restoration that has to stand up to spreadsheets and funders and time. The scale changed. The conviction didn't.
 
-This letter is where I'm going to think it out loud. I'm calling the idea *Inner & Outer Landscapes*, and I'm building it in public, one letter every two weeks. Some issues will bring you a story from the field. Some, the harder, human side: the grief, the doubt, the stubborn hope this work runs on. Always one idea you can actually use.
+This letter is where I'm going to think it out loud. I'm calling the idea *Inner & Outer Landscapes*, and I'm building it in public, one letter a month. Some issues will bring you a story from the field. Some, the harder, human side: the grief, the doubt, the stubborn hope this work runs on. Always one idea you can actually use.
 
 If you came here for ten ways to plant more trees, you'll get some of that. But I think you're really here for the other thing: the part where regenerating the world and regenerating yourself turn out to be the same project.
 
