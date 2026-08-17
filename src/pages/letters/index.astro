@@ -6,15 +6,22 @@ import { getCollection } from 'astro:content';
 
 const letters = (await getCollection('letters', ({ data }) => !data.draft))
   .sort((a, b) => b.data.number - a.data.number);
+
+// Next-issue date derives from the latest letter, so this line maintains itself.
+const nextIssue = letters[0] ? new Date(letters[0].data.date) : null;
+if (nextIssue) nextIssue.setMonth(nextIssue.getMonth() + 1);
+const nextIssueLabel = nextIssue
+  ? nextIssue.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })
+  : 'soon';
 ---
 <Base
   title="Letters"
-  description={`${SITE.newsletterName}: a fortnightly letter on ecological restoration, inner development and regenerative culture, written from the field in Africa by Chris Nash.`}
+  description={`${SITE.newsletterName}: a monthly letter on ecological restoration, inner development and regenerative culture, written from the field in Africa by Chris Nash.`}
   path="/letters/"
 >
   <section class="hero">
     <div class="wrap">
-      <p class="kicker">The fortnightly letter</p>
+      <p class="kicker">The monthly letter</p>
       <h1>Inner &amp; Outer <em>Landscapes</em></h1>
       <p class="lede">
         A letter about the two restorations, land and people, and the regenerative culture
@@ -42,8 +49,8 @@ const letters = (await getCollection('letters', ({ data }) => !data.draft))
         ))}
         <div class="ledger-row teaser">
           <span class="no">No. {String((letters[0]?.data.number ?? 0) + 1).padStart(3, '0')}</span>
-          <span><h3>Arrives early August 2026</h3></span>
-          <span class="date">fortnightly</span>
+          <span><h3>Arrives {nextIssueLabel}</h3></span>
+          <span class="date">monthly</span>
         </div>
       </div>
     </div>
