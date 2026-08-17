@@ -1,6 +1,8 @@
-# chrisnash.earth — Design Brief v1.0
+# chrisnash.earth — Design Brief v1.1
 
-Launch site for Chris Nash: restoration leader, agroecologist, regenerative-development practitioner (Cape Town, SA). Hub-and-spoke brand: the personal domain is the anchor; "Inner & Outer Landscapes" is the named fortnightly newsletter living inside it.
+Launch site for Chris Nash: restoration leader, agroecologist, regenerative-development practitioner (Cape Town, SA). Hub-and-spoke brand: the personal domain is the anchor; "Inner & Outer Landscapes" is the named monthly newsletter living inside it.
+
+Cadence changed from fortnightly to monthly on 17 August 2026. Rationale: the real time budget is two to three hours a week, and a cadence that is kept is worth more than a cadence that is doubled and missed. Every user-facing cadence claim in the site now reads monthly.
 
 ## The one thing
 When someone leaves the site they should feel that restoring land and restoring people is one work, and want to follow it. Primary action: subscribe to the letters.
@@ -33,7 +35,7 @@ Colors:
 - Dusk section text: #EFEDDF on --green-deep, gold accent #C9A45C.
 
 Type:
-- Display serif: Fraunces (Google Fonts, variable, high-contrast feel). Weights 300-600, italics for emphasis words and pull quotes.
+- Display serif: Fraunces (variable, high-contrast feel). Weights 300-600, italics for emphasis words and pull quotes.
 - UI/body sans: Inter. Body 16-17px, line-height 1.65.
 - Display sizes: hero clamp(36px, 5.6vw, 60px); h2 clamp(26px, 3.6vw, 38px).
 - Small labels: 11-12px uppercase letterspaced (0.2em) in ochre or green.
@@ -48,7 +50,7 @@ Imagery:
 - Captions credit place, and where known, people and programme.
 
 ## Pages (launch)
-1. **Home (/)**: kicker line; tagline hero; 1-2 sentence positioning under it; email capture (quantified promise: fortnightly, 5 minutes); three routes (Read the letters / Field work note / About); triad explainer (Inner / Outer / Regenerative Culture); latest letters list (3); dusk quote band ("There is no better common ground than the ground beneath our feet."); footer.
+1. **Home (/)**: kicker line; tagline hero; 1-2 sentence positioning under it; email capture (quantified promise: monthly, 5 minutes); three routes (Read the letters / Field work note / About); triad explainer (Inner / Outer / Regenerative Culture); latest letters list (3); dusk quote band ("There is no better common ground than the ground beneath our feet."); footer.
 2. **Letters (/letters)**: newsletter landing: what it is, the triad format, capture form, archive list. Individual letters at /letters/[slug] with mid+end capture CTAs.
 3. **About (/about)**: short intro + structure with placeholder for Chris's own prose; signature metrics block (programme-attributed); the five-part perspective; links to Greenpop; short bio + LinkedIn link. Entity-rich (Person schema).
 4. **Now (/now)**: "what the work is this season" dated entries (Nairobi syntropic site, Mulanje, Matamp City, Uilenkraal, the letters). Sivers /now pattern.
@@ -63,6 +65,7 @@ Imagery:
 - Capture in 3 placements (hero, mid, footer) wired for Kit (form action placeholder until account exists; graceful fallback message).
 - Anti-spam pledge line. No popups ever.
 - Footer: quiet, complete (letters, about, now, rss, LinkedIn, Greenpop, contact email).
+- The next-issue line is derived from the latest letter date plus one month. Never hardcode it; a stale date is worse than no date.
 
 ## Out of scope at launch
 Speaking, Work With Me, Field Work case studies, podcast feed (content model ready), Higgsfield anything, dark mode toggle.
