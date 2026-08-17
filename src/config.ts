@@ -4,7 +4,7 @@ export const SITE = {
   title: 'Chris Nash · Inner & Outer Landscapes',
   tagline: 'Seeding a regenerative culture, through restoration of inner and outer landscapes.',
   description:
-    'Chris Nash is a restoration leader and agroecologist in Cape Town, South Africa. Fortnightly letters on ecological restoration, inner development and regenerative culture across Africa.',
+    'Chris Nash is a restoration leader and agroecologist in Cape Town, South Africa. A monthly letter on ecological restoration, inner development and regenerative culture across Africa.',
   url: 'https://chrisnash.earth',
   email: 'chris@chrisnash.earth',
   linkedin: 'https://www.linkedin.com/in/christopher-nash-bba628266',
@@ -14,7 +14,7 @@ export const SITE = {
   // the form component then renders the personal-subscribe fallback instead of a dead form.
   kitFormAction: '', // e.g. 'https://app.kit.com/forms/1234567/subscriptions'
   newsletterName: 'Inner & Outer Landscapes',
-  newsletterPromise: 'One letter every two weeks. Read in five minutes.',
+  newsletterPromise: 'One letter a month. Read in five minutes.',
   antiSpam: 'No noise, no selling, unsubscribe anytime.',
 
   // Role anchor shown near the hero for cold visitors.
